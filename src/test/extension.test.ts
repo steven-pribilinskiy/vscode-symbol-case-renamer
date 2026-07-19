@@ -3,6 +3,7 @@ import * as assert from 'node:assert';
 import * as vscode from 'vscode';
 
 import {
+  toAdaCase,
   toCamelCase,
   toConstantCase,
   toKebabCase,
@@ -168,5 +169,20 @@ suite('Extension Test Suite', () => {
 
     const newText = editor.document.getText(selection);
     assert.strictEqual(newText, toUpperCase(originalText));
+  });
+
+  test('renameToAdacase', async () => {
+    const editor = await vscode.window.activeTextEditor;
+    if (!editor) {
+      return;
+    }
+
+    const selection = editor.selection;
+    const originalText = editor.document.getText(selection);
+
+    await vscode.commands.executeCommand('symbol-case-renamer.renameToAdacase');
+
+    const newText = editor.document.getText(selection);
+    assert.strictEqual(newText, toAdaCase(originalText));
   });
 });

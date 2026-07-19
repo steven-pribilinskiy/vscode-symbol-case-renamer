@@ -10,9 +10,11 @@
     "url": "https://github.com/steven-pribilinskiy/vscode-symbol-case-renamer.git"
   },
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.109.0"
   },
-  "categories": ["Formatters"],
+  "categories": [
+    "Formatters"
+  ],
   "main": "./out/extension.js",
   "activationEvents": [],
   "contributes": {
@@ -52,6 +54,10 @@
       {
         "command": "symbol-case-renamer.renameToConstantCase",
         "title": "Rename Symbol to CONSTANT_CASE"
+      },
+      {
+        "command": "symbol-case-renamer.renameToAdaCase",
+        "title": "Rename Symbol to Ada_Case"
       }
     ]
   },
@@ -69,9 +75,9 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "25.x",
     "@types/vscode": "^1.109.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260223.1",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
-    "@vscode/vsce": "^3.7.1",
-    "@typescript/native-preview": "^7.0.0-dev.20260223.1"
+    "@vscode/vsce": "^3.7.1"
   }
 }

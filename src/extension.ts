@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import {
+  toAdaCase,
   toCamelCase,
   toConstantCase,
   toKebabCase,
@@ -48,6 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
     'symbol-case-renamer.renameToSnakeCase': toSnakeCase,
     'symbol-case-renamer.renameToTitleCase': toTitleCase,
     'symbol-case-renamer.renameToUpperCase': toUpperCase,
+    'symbol-case-renamer.renameToAdaCase': toAdaCase,
   };
 
   const disposables = Object.entries(commandNameCase).map(

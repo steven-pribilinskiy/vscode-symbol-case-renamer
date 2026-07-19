@@ -1,5 +1,6 @@
 import * as assert from 'node:assert';
 import {
+  toAdaCase,
   toCamelCase,
   toConstantCase,
   toKebabCase,
@@ -66,5 +67,29 @@ suite('Utils Test Suite', () => {
   test('toUpperCase', () => {
     assert.strictEqual(toUpperCase('hello_world'), 'HELLO_WORLD');
     assert.strictEqual(toUpperCase('HelloWorld'), 'HELLOWORLD');
+  });
+
+  test('toAdaCase', () => {
+    assert.strictEqual(toAdaCase('hello_world'), 'Hello_World');
+    assert.strictEqual(toAdaCase('hello-world'), 'Hello_World');
+    assert.strictEqual(toAdaCase('hello world'), 'Hello_World');
+
+    assert.strictEqual(toAdaCase('helloWorld'), 'Hello_World');
+    assert.strictEqual(toAdaCase('HelloWorld'), 'Hello_World');
+
+    assert.strictEqual(toAdaCase('XMLHttpRequest'), 'Xml_Http_Request');
+    assert.strictEqual(toAdaCase('HTTPServer'), 'Http_Server');
+    assert.strictEqual(toAdaCase('userID'), 'User_Id');
+
+    assert.strictEqual(toAdaCase('version2API'), 'Version2_Api');
+    assert.strictEqual(toAdaCase('api_v2_endpoint'), 'Api_V2_Endpoint');
+
+    assert.strictEqual(toAdaCase('foo.bar.baz'), 'Foo_Bar_Baz');
+    assert.strictEqual(toAdaCase('foo---bar___baz'), 'Foo_Bar_Baz');
+
+    assert.strictEqual(toAdaCase('hello'), 'Hello');
+    assert.strictEqual(toAdaCase('HELLO'), 'Hello');
+
+    assert.strictEqual(toAdaCase(''), '');
   });
 });
